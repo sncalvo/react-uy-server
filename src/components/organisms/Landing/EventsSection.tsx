@@ -51,7 +51,7 @@ const EventsSection = async () => {
 
       <div className="flex flex-col gap-4 md:flex-row">
         {events.map((event) => (
-          <EventCard event={event} />
+          <EventCard key={event.id} event={event} />
         ))}
       </div>
     </SectionWrapper>
