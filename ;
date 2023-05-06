@@ -1,0 +1,24 @@
+import * as zod from 'zod';
+import prisma from '@/lib/db';
+
+const presenterSchema = zod.object({
+  email: zod.string(),
+  name: zod.string(),
+})
+async function presenterJoin(presenter: zod.infer<typeof presenterSchema>) {
+  return prisma.presenter.create({ data: presenter });
+}
+
+export default function Join() {
+  return (
+    <form action={async (data) => {
+      'use server'
+      const presenter = presenterSchema.parse(data);
+
+      await presenterJoin(presenter);
+    }}>
+      <input name="email" type="email" />
+      <input name="title" type="text" />
+    </form>
+  )
+}
