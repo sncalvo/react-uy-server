@@ -1,10 +1,16 @@
 import SectionWrapper from '@/components/molecules/SectionWrapper';
 
-import type { Event } from '@prisma/client';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { sql } from '@vercel/postgres';
+
+type Event = {
+  id: number;
+  name: string;
+  description: string;
+  image: string;
+}
 
 type Props = {
   event: Event;
