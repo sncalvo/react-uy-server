@@ -1,9 +1,10 @@
 import SectionWrapper from '@/components/molecules/SectionWrapper';
-import prisma from '@/lib/db';
 
 import type { Event } from '@prisma/client';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import { sql } from '@vercel/postgres';
 
 type Props = {
   event: Event;
@@ -12,7 +13,7 @@ type Props = {
 
 const EventCard = ({ event }: Props) => {
   return (
-    <Link href={`/events/${event.id}`} className="relative flex h-48 min-w-min  max-w-xs flex-col items-center justify-center overflow-hidden rounded-lg p-4 shadow-lg transition-all hover:scale-105">
+    <Link href={`/events/${event.id}`} className="relative flex h-48 min-w-min  max-w-xs flex-col items-center justify-center overflow-hidden rounded-lg p-4 shadow-lg transition-all hover:scale-105 duration-300 ease-in-out">
       <figure className="absolute h-full w-full">
         <Image
           src={event.image}
@@ -31,18 +32,20 @@ const EventCard = ({ event }: Props) => {
   );
 };
 
-function getEvents() {
-  return prisma.event.findMany();
+async function getEvents() {
+  const { rows } = await sql<Event>`SELECT * FROM "Event"`;
+
+  return rows;
 }
 
 const EventsSection = async () => {
   const events = await getEvents();
-  
+
   return (
     <SectionWrapper right background="alt">
       <h2 className="mb-4 text-6xl font-bold text-gray-800 dark:text-gray-100">Nuestros eventos</h2>
 
-      <p className="mb-8 px-12 text-gray-600 dark:text-gray-400 md:px-32 xl:px-72">
+      <p className="mb-8 px-12 text-gray-600 dark:text-gray-200 md:px-32 xl:px-72">
         Si estás interesado en aprender más sobre ReactJS y conectarte con otros desarrolladores
         apasionados por esta tecnología, ¡estás en el lugar correcto! Te invitamos a participar en
         nuestros eventos, donde tendrás la oportunidad de conocer a otros miembros de la comunidad,

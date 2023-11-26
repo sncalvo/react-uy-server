@@ -6,9 +6,23 @@ import Rive from '@rive-app/react-canvas';
 // import { signIn, useSession } from 'next-auth/react';
 import Link from 'next/link';
 
+import { useSearchParams } from 'next/navigation';
+
+import NotificationAlert from '../molecules/NotificationAlert';
+
 const Header = () => {
+  const searchParams = useSearchParams();
+
+  const success = searchParams.get('success');
+
   return (
     <>
+      <NotificationAlert
+        show={!!success}
+        title="Hemos recibido tu solicitud de presentador!"
+        description="Te contactaremos a la brevedad para confirmar tu participación."
+      />
+
       <header className="absolute top-0 left-0 right-0 flex flex-row justify-between p-4">
         <Link className="flex max-w-[300px] items-center" href="/">
           <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-white dark:bg-gray-800">

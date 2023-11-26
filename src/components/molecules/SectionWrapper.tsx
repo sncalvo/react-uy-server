@@ -31,7 +31,7 @@ const SectionWrapper = ({
           childRef.current?.classList.add('!translate-x-0');
         }
       },
-      { threshold: 0.5 },
+      { threshold: 0.3 },
     );
 
     observer.observe(ref);
@@ -48,7 +48,7 @@ const SectionWrapper = ({
   return (
     <section
       className={clsx(
-        'min-h-screen text-center opacity-0 transition-all delay-100 duration-[2000ms]',
+        'min-h-screen text-center opacity-0 transition-all delay-100 duration-[1000ms]',
         {
           'bg-sky-100 dark:bg-gray-900': background === 'default',
           'bg-sky-200 dark:bg-sky-900': background === 'alt',
