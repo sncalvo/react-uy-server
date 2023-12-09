@@ -3,6 +3,8 @@ import EventsSection from '@/components/organisms/Landing/EventsSection';
 import OrganizersSection from '@/components/organisms/Landing/OrganizersSection';
 import PresenterSection from '@/components/organisms/Landing/PresenterSection';
 
+export const revalidate = 3600
+
 export default function Home() {
   return (
     <>
