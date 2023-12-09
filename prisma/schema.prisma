@@ -3,34 +3,44 @@ generator client {
 }
 
 datasource db {
-  provider          = "postgresql"
-  url               = env("POSTGRES_PRISMA_URL")
-  directUrl         = env("POSTGRES_URL_NON_POOLING")
-  shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING")
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
 model Event {
-  id          String    @id @default(cuid())
+  id          BigInt   @id @default(autoincrement())
   name        String
   description String
   image       String
   link        String
   date        DateTime
-  communityId String
-  community   Community @relation(fields: [communityId], references: [id])
+
+  presenterOnEvents PresenterOnEvents[]
 }
 
-model Community {
-  id          String  @id @default(cuid())
-  name        String
-  description String
-  image       String
-  link        String
-  events      Event[]
+model PresenterOnEvents {
+  id          BigInt @id @default(autoincrement())
+  eventId     BigInt
+  presenterId BigInt
+
+  event     Event     @relation(fields: [eventId], references: [id])
+  presenter Presenter @relation(fields: [presenterId], references: [id])
 }
 
 model Presenter {
-  id          String  @id @default(cuid())
-  name        String
-  email String
+  id                BigInt              @id @default(autoincrement())
+  name              String
+  email             String
+  image             String
+  PresenterOnEvents PresenterOnEvents[]
+}
+
+model PresenterRequest {
+  id                      BigInt @id @default(autoincrement())
+  firstName               String
+  lastName                String
+  email                   String
+  presentationDescription String
+  companyName             String
 }

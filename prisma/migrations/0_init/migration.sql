@@ -24,3 +24,4 @@ CREATE TABLE "Community" (
 
 -- AddForeignKey
 ALTER TABLE "Event" ADD CONSTRAINT "Event_communityId_fkey" FOREIGN KEY ("communityId") REFERENCES "Community"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+

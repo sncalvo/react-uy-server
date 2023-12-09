@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <>
+    <div className="bg-white">
       <Header />
 
       <main className="min-h-screen overflow-x-hidden">
@@ -20,6 +20,6 @@ export default function RootLayout({
       </main>
 
       <Footer />
-    </>
+    </div>
   );
 }
