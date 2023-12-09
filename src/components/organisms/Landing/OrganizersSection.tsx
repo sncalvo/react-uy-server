@@ -3,14 +3,14 @@ import Link from 'next/link';
 
 const organizers = [
   {
-    image: '/images/organizers/1.jpeg',
+    image: '/images/organizers/1.webp',
     name: 'Santiago Calvo',
     position: 'Team Leader @ eagerworks',
     link: 'https://scalvo.dev',
     alt: 'Foto Santiago Calvo',
   },
   {
-    image: '/images/organizers/2.jpeg',
+    image: '/images/organizers/2.webp',
     name: '1950Labs',
     alt: 'Foto 1950Labs',
     link: 'https://1950labs.com',
