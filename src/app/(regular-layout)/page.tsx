@@ -1,9 +1,9 @@
-import PresentationSection from '@/components/organisms/Landing/PresentationSection';
-import EventsSection from '@/components/organisms/Landing/EventsSection';
-import OrganizersSection from '@/components/organisms/Landing/OrganizersSection';
-import PresenterSection from '@/components/organisms/Landing/PresenterSection';
+import PresentationSection from "@/components/organisms/Landing/PresentationSection";
+import EventsSection from "@/components/organisms/Landing/EventsSection";
+import OrganizersSection from "@/components/organisms/Landing/OrganizersSection";
+import PresenterSection from "@/components/organisms/Landing/PresenterSection";
 
-export const revalidate = 3600
+export const revalidate = 3600;
 
 export default function Home() {
   return (
@@ -17,5 +17,5 @@ export default function Home() {
 
       <OrganizersSection />
     </>
-  )
+  );
 }

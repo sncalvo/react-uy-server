@@ -1,4 +1,4 @@
-import { Presenter } from "./presenter";
+import type { Presenter } from "./presenter";
 
 export type Event = {
   id: number;
@@ -8,4 +8,4 @@ export type Event = {
   link: string;
   image: string;
   presenters: Presenter[];
-}
+};

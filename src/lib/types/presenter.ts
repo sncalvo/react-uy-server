@@ -3,4 +3,4 @@ export type Presenter = {
   email: string;
   name: string;
   image: string;
-}
+};

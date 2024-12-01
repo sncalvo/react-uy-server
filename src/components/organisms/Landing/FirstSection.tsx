@@ -1,10 +1,10 @@
-import { IoLogoWebComponent, IoPeopleOutline } from 'react-icons/io5';
-import { BsFiletypeJsx } from 'react-icons/bs';
-import { GiCheckboxTree } from 'react-icons/gi';
-import { TbHandLittleFinger } from 'react-icons/tb';
-import { SlScreenDesktop } from 'react-icons/sl';
-import SectionWrapper from '@/components/molecules/SectionWrapper';
-import clsx from 'clsx';
+import { IoLogoWebComponent, IoPeopleOutline } from "react-icons/io5";
+import { BsFiletypeJsx } from "react-icons/bs";
+import { GiCheckboxTree } from "react-icons/gi";
+import { TbHandLittleFinger } from "react-icons/tb";
+import { SlScreenDesktop } from "react-icons/sl";
+import SectionWrapper from "@/components/molecules/SectionWrapper";
+import clsx from "clsx";
 
 type FeatureProps = {
   title: string;
@@ -13,9 +13,14 @@ type FeatureProps = {
   mobile?: boolean;
 };
 
-const Feature = ({ title, description, icon, mobile = false }: FeatureProps) => (
+const Feature = ({
+  title,
+  description,
+  icon,
+  mobile = false,
+}: FeatureProps) => (
   <div
-    className={clsx('group h-full flex-col items-center md:w-2/3 lg:flex', {
+    className={clsx("group h-full flex-col items-center md:w-2/3 lg:flex", {
       flex: mobile,
       hidden: !mobile,
     })}
@@ -33,20 +38,25 @@ const Feature = ({ title, description, icon, mobile = false }: FeatureProps) => 
     </div>
 
     <div className="h-1/3">
-      <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 lg:text-base">{description}</p>
+      <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 lg:text-base">
+        {description}
+      </p>
     </div>
   </div>
 );
 
 const FirstSection = () => (
   <SectionWrapper left>
-    <h1 className="text-6xl font-bold text-gray-800 dark:text-gray-100">¿Qué es ReactJS?</h1>
+    <h1 className="text-6xl font-bold text-gray-800 dark:text-gray-100">
+      ¿Qué es ReactJS?
+    </h1>
     <p className="mt-6 text-gray-600 dark:text-gray-400 md:px-24 xl:px-96">
-      React JS es una biblioteca de JavaScript para construir interfaces de usuario interactivas y
-      dinámicas para aplicaciones web. Fue desarrollado por Facebook y se ha convertido en una de
-      las tecnologías más populares para el desarrollo de aplicaciones web modernas. React JS se
-      enfoca en la construcción de componentes reutilizables que representan una porción de la
-      interfaz de usuario.
+      React JS es una biblioteca de JavaScript para construir interfaces de
+      usuario interactivas y dinámicas para aplicaciones web. Fue desarrollado
+      por Facebook y se ha convertido en una de las tecnologías más populares
+      para el desarrollo de aplicaciones web modernas. React JS se enfoca en la
+      construcción de componentes reutilizables que representan una porción de
+      la interfaz de usuario.
     </p>
 
     <div className="mt-10 grid grid-cols-2 grid-rows-2 place-items-center gap-y-14 gap-x-5 pt-10 lg:grid-cols-3 lg:gap-x-10">

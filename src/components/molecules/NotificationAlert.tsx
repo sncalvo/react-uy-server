@@ -1,13 +1,13 @@
-import { Fragment, useEffect, useState } from 'react'
-import { Transition } from '@headlessui/react'
-import { CheckCircleIcon } from '@heroicons/react/24/outline'
-import { XMarkIcon } from '@heroicons/react/20/solid'
+import { Fragment, useEffect, useState } from "react";
+import { Transition } from "@headlessui/react";
+import { CheckCircleIcon } from "@heroicons/react/24/outline";
+import { XMarkIcon } from "@heroicons/react/20/solid";
 
 type Props = {
-  show: boolean
-  title: string
-  description: string
-}
+  show: boolean;
+  title: string;
+  description: string;
+};
 
 export default function NotificationAlert({ title, description, show }: Props) {
   const [isShowing, setIsShowing] = useState(show);
@@ -19,7 +19,7 @@ export default function NotificationAlert({ title, description, show }: Props) {
 
     return () => {
       clearTimeout(timeout);
-    }
+    };
   }, [show]);
 
   return (
@@ -42,7 +42,10 @@ export default function NotificationAlert({ title, description, show }: Props) {
             <div className="p-4">
               <div className="flex items-start">
                 <div className="flex-shrink-0">
-                  <CheckCircleIcon className="h-6 w-6 text-green-400" aria-hidden="true" />
+                  <CheckCircleIcon
+                    className="h-6 w-6 text-green-400"
+                    aria-hidden="true"
+                  />
                 </div>
                 <div className="ml-3 w-0 flex-1 pt-0.5">
                   <p className="text-sm font-medium text-gray-900">{title}</p>
@@ -53,7 +56,7 @@ export default function NotificationAlert({ title, description, show }: Props) {
                     type="button"
                     className="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     onClick={() => {
-                      setIsShowing(false)
+                      setIsShowing(false);
                     }}
                   >
                     <span className="sr-only">Cerrar</span>
@@ -66,5 +69,5 @@ export default function NotificationAlert({ title, description, show }: Props) {
         </Transition>
       </div>
     </div>
-  )
+  );
 }

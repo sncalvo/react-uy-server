@@ -1,25 +1,28 @@
-'use client';
+"use client";
 
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Suspense, useState } from 'react';
-import NavLink from '../atoms/NavLink';
-import { Dialog } from '@headlessui/react';
-import Rive from '@rive-app/react-canvas';
-import Link from 'next/link';
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Suspense, useState } from "react";
+import NavLink from "../atoms/NavLink";
+import { Dialog } from "@headlessui/react";
+import Rive from "@rive-app/react-canvas";
+import Link from "next/link";
 
 const navigationLinks = [
-  { name: 'Inicio', href: '#' },
-  { name: 'Eventos', href: '#events' },
-  { name: 'Ser Presentador', href: '#become-speaker' },
-  { name: 'Organizadores', href: '#organizers' },
-]
+  { name: "Inicio", href: "#" },
+  { name: "Eventos", href: "#events" },
+  { name: "Ser Presentador", href: "#become-speaker" },
+  { name: "Organizadores", href: "#organizers" },
+];
 
 const Navigation = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <>
-      <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <nav
+        className="flex items-center justify-between p-6 lg:px-8"
+        aria-label="Global"
+      >
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
@@ -46,7 +49,9 @@ const Navigation = () => {
 
         <ul className="hidden lg:flex lg:gap-x-12">
           {navigationLinks.map((link) => (
-            <li key={link.name}><NavLink href={link.href}>{link.name}</NavLink></li>
+            <li key={link.name}>
+              <NavLink href={link.href}>{link.name}</NavLink>
+            </li>
           ))}
         </ul>
 
@@ -56,11 +61,16 @@ const Navigation = () => {
           {/* </a> */}
         </div>
       </nav>
-      <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
         <div className="fixed inset-0 z-50" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
+            <a href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-white dark:bg-gray-800">
                 <Suspense>
@@ -84,10 +94,7 @@ const Navigation = () => {
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
                 {navigationLinks.map((link) => (
-                  <NavLink
-                    key={link.name}
-                    href={link.href}
-                  >
+                  <NavLink key={link.name} href={link.href}>
                     {link.name}
                   </NavLink>
                 ))}

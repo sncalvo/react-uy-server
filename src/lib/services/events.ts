@@ -1,9 +1,16 @@
 import { sql } from "@vercel/postgres";
 
-import { Event } from "../types/event";
+import type { Event } from "../types/event";
 
 export async function getEvents() {
-  const { rows } = await sql<Event & { 'presenter.id': number, 'presenter.name': string, 'presenter.image': string, 'presenter.email': string }>`
+  const { rows } = await sql<
+    Event & {
+      "presenter.id": number;
+      "presenter.name": string;
+      "presenter.image": string;
+      "presenter.email": string;
+    }
+  >`
     SELECT 
       "Event"."id" AS "id",
       "Event"."name" AS "name",
@@ -24,10 +31,10 @@ export async function getEvents() {
     const event = events.find((event) => event.id === row.id);
     if (event) {
       event.presenters.push({
-        id: row['presenter.id'],
-        email: row['presenter.email'],
-        name: row['presenter.name'],
-        image: row['presenter.image'],
+        id: row["presenter.id"],
+        email: row["presenter.email"],
+        name: row["presenter.name"],
+        image: row["presenter.image"],
       });
     } else {
       events.push({
@@ -37,7 +44,14 @@ export async function getEvents() {
         date: row.date,
         link: row.link,
         image: row.image,
-        presenters: [{ id: row['presenter.id'], email: row['presenter.email'], name: row['presenter.name'], image: row['presenter.image'] }],
+        presenters: [
+          {
+            id: row["presenter.id"],
+            email: row["presenter.email"],
+            name: row["presenter.name"],
+            image: row["presenter.image"],
+          },
+        ],
       });
     }
     return events;

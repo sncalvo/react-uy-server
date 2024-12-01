@@ -3,12 +3,12 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'reactuy.s3.sa-east-1.amazonaws.com',
-        port: '',
-      }
-    ]
+        protocol: "https",
+        hostname: "reactuy.s3.sa-east-1.amazonaws.com",
+        port: "",
+      },
+    ],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

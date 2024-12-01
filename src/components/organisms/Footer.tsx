@@ -1,4 +1,4 @@
-import { SiGithub, SiLinkedin, SiTwitter } from 'react-icons/si';
+import { SiGithub, SiLinkedin, SiTwitter } from "react-icons/si";
 
 const Footer = () => (
   <footer className="flex flex-col gap-4 bg-gradient-to-t from-blue-500 to-blue-400 p-4 pt-20 pb-8 dark:from-sky-700 dark:to-sky-900">
